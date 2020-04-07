@@ -31,8 +31,8 @@ function studentInformation(){
 function createSession(){// this function it will create a session
     studentInformation();//method to get the admin information
 
-    global $student_nickname;
     global $student_course;
+    global $student_nickname;
     global  $id_student;
     global $connection;//global connectin
     if(isset($_POST['create_post'])){
@@ -46,7 +46,7 @@ function createSession(){// this function it will create a session
         $session_content=$_POST['session_descr'];
         
        
-        $query="INSERT INTO `session`(`course`,`session_title`,`session_id_admin`,`session_admin`,  `session_date`, `session_time`, `session_location`, `session_tags`, `session_descr`) VALUES ('{$student_course}','{$session_title}','{$id_student}','{$student_nickname}','{$session_date}','{$session_time}','{$session_location}','{$session_tags}','{$session_content}')";
+        $query="INSERT INTO `session`(`course`,`session_title`,`session_id_admin`,`session_admin`, `session_date`, `session_time`, `session_location`, `session_tags`, `session_descr`) VALUES ('$student_course',' $session_title','$id_student',' $student_nickname','$session_date','$session_time','$session_location','$session_tags','$session_content')";
     
         $create_post_query=mysqli_query($connection,$query);
         if($create_post_query){
@@ -94,6 +94,9 @@ function showAllSession(){// it will show all the session available for the stud
        
      }
 }
+//======================================================================================================================
+
+
 
 
 

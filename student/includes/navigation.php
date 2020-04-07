@@ -71,13 +71,13 @@
                         <a href="createSession.php"><i class="fa fa-fw fa-bar-chart-o"></i> Create Session</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Manage Session</a>
+                        <a href="manageSession.php"><i class="fa fa-fw fa-table"></i> Manage Session</a>
                     </li>
                     <li>
                         <a href="showAllSession.php"><i class="fa fa-fw fa-table"></i> Show All session available</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Report user</a>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Search  user</a>
                     </li>
                    
                 </ul>
