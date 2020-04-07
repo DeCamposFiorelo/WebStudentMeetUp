@@ -42,7 +42,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                 <label for="time">Time</label>
                                 <input type="time" class="form-control" name="session_time"required>
                             </div>
-
+  
                             <div class = "form-group">
                                 <label for = "location"> Session Location</label>
                                 <input type="text" class="form-control" name="session_location"required>

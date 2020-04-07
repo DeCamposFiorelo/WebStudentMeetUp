@@ -10,7 +10,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
 
 <?php include "includes/header.php" ?>
 
-    <div id="wrapper">
+    <div id="wrapper">   
 
         <!-- Navigation -->
         <?php include "includes/navigation.php" ?>

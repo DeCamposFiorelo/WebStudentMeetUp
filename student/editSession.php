@@ -18,7 +18,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
 		echo"The Session was Delete!";
     }
   
-
+ 
 
 
 

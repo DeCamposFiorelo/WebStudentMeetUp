@@ -91,7 +91,7 @@ function showAllSession(){// it will show all the session available for the stud
 
 
         echo"</tr>";
-       
+        
      }
 }
 //======================================================================================================================

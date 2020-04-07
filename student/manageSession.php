@@ -7,7 +7,6 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
 	header("location: ../index.php");
 }
 ?>
-
 <?php include "includes/header.php" ?>
 
     <div id="wrapper">

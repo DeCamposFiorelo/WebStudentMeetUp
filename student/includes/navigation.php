@@ -58,7 +58,7 @@
                         <li>
                             <a href="../index.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
-                    </ul>
+                    </ul>  
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->

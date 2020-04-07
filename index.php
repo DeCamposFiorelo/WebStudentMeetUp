@@ -9,7 +9,7 @@
                 <div class="intro-heading text-uppercase"><span>It's Nice To Meet You</span></div><a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" role="button" href="#login">Login</a></div>
         </div>
     </header>
-    <!-- Login and register section-->
+    <!-- Login and register section-->   
     <section id="login" >
         <div class="container">
             <div class="row">

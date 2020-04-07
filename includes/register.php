@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
         $course= mysqli_real_escape_string($connection, $course);
 
         
-       
+        
 
         $query = "INSERT INTO student(student_firstName,student_nickname,student_email,student_password,student_course,student_description)VALUES('$firstName','$nickname','$registerEmail','$registerPassword','$course', '$description')";
         $select_user_query=mysqli_query($connection,$query);
