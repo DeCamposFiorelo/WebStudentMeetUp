@@ -34,6 +34,29 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
 	                        ?>
                             
                         </h1>
+                        <table class="table table-bordered table-hover">
+                        <br>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Course</th>
+                                    <th>Session Title</th>
+                                    <th>Session author</th>
+                                    <th>Session Date</th>
+                                    <th>Session time</th>
+                                    <th>Session Location</th>
+                                    <th>Session Content</th>
+                                    <th>Join Session </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                        <?php
+	                       showAllSession();
+
+	                    ?>
+                        </tbody>
+                        </table>
                   
                             
                     </div>

@@ -3,6 +3,7 @@ session_start();
 include('../includes/db.php');
 
 
+
 if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"])){
 	header("location: ../index.php");
 }

@@ -64,7 +64,8 @@ function showAllSession(){// it will show all the session available for the stud
     studentInformation();//method to get the admin information
     global $connection;//global connectin
     global $student_course;
-    $query="SELECT * from session WHERE course='$student_course'";
+    global $id_student;
+    $query="SELECT * from session WHERE course='$student_course' and session_id_admin<>'$id_student'";
     $select_post= mysqli_query($connection,$query);
 
       
@@ -95,11 +96,33 @@ function showAllSession(){// it will show all the session available for the stud
      }
 }
 //======================================================================================================================
+function updateProfile(){// this function it will create a session
+    studentInformation();//method to get the admin information
 
-
-
-
-
-
-
+    global $id_student;
+    global $connection;//global connectin
+    if(isset($_POST['update'])){
+        
+        
+        $studentFirstName=$_POST['studentFirstName'];
+        $studentNickname= $_POST['studentNickname'];
+        $studentemail= $_POST['studentemail'];
+        $studentcourse= $_POST['studentcourse'];
+        $studentdescription=$_POST['studentdescription'];
+        
+        
+       
+        $query="UPDATE `student` SET `student_firstName`='$studentFirstName',`student_nickname`='$studentNickname',`student_email`='$studentemail',`student_course`='$studentcourse',`student_description`='$studentdescription' WHERE id_student='$id_student';";
+    
+        $create_post_query=mysqli_query($connection,$query);
+        if($create_post_query){
+            echo"<p style='color:#FF0000'>user updated</p>";
+            
+        }else{
+            die("query failed".mysqli_error($connection));
+        }
+    
+    
+}  
+}
 ?>
