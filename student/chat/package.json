@@ -2,18 +2,16 @@
   "name": "chat",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart":"nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.0.2",
-    "express": "^4.17.1",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.3"
   }
 }
