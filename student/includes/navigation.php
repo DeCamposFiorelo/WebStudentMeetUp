@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav style="background:#ff8c25"class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -8,13 +8,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Student Page</a>
+                <a style="color:#ffffff"class="navbar-brand" href="welcome.php">Student Page</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
         
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Index <b class="caret"></b></a>
+                    <a style="color:#ffffff" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Index <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>

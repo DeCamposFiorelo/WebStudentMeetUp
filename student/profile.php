@@ -22,7 +22,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="row">
+                <div  class="row">
                     <div class="col-lg-12"> 
                         <h1 class="page-header">Profile</h1>
                        
@@ -57,7 +57,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                 <input type="text" class="form-control" name="studentdescription" value="<?php echo$student_description;?>"required>
                             </div>
                             <div>
-                                <button class="btn btn-success" type="submit" onclick="myFunction()"name="update">Update</button>
+                                <button class="btn btn-success" type="submit" onclick="myFunction()"name="update"style="color: rgb(255,255,255);background-color: #ff8c25">Update</button>
                             </div>
                         </form>
                         <?php

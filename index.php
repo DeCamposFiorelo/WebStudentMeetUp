@@ -6,7 +6,7 @@
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in"><span>Welcome To StudentMeetUp</span></div>
-                <div class="intro-heading text-uppercase"><span>It's Nice To Meet You</span></div><a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" role="button" href="#login">Login</a></div>
+                <div class="intro-heading text-uppercase"><span>It's Nice To Meet You</span></div><a class="button btn-xl text-uppercase js-scroll-trigger" role="button" href="#login">Login</a></div>
         </div>
     </header>
     <!-- Login and register section-->   
@@ -18,8 +18,8 @@
                         <form action="includes/login.php" method="post">
                         <div class="form-group"><input class="form" type="email" name="email" placeholder="Email"></div>
                         <div class="form-group"><input class="form" type="password" name="password" placeholder="Password"></div>
-                        <div class="form-group"><button class="btn btn-primary " type="submit" name="login" style="color: rgb(255,255,255);background-color: rgb(221,201,20);">Log In</button>
-                        </div><a class="forgot" href="#"><b>Forgot your email or password?</a></b></form>
+                        <div class="form-group"><button class="button " type="submit" name="login">Log In</button>
+                        </div></form>
                  </div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
@@ -44,7 +44,7 @@
 
                             </select>
                             </div>
-                            <button class="btn btn-primary " type="submit" name="submit" style="color: rgb(255,255,255);background-color: rgb(221,201,20);">Register</button>
+                            <button class="button " type="submit" name="submit" >Register</button>
                         </div>
                     </form>
                  </div>
@@ -87,36 +87,4 @@
         </div>
     </section>
      <!-- Contact section-->
-    <section id="contact" style="background-image:url('assets/img/map-image.png');">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted"></h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form id="contactForm" name="contactForm" novalidate="novalidate">
-                        <div class="form-row">
-                            <div class="col col-md-6">
-                                <div class="form-group"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
-                                <div class="form-group"><input class="form-control" type="email" id="email" placeholder="Your Email *" required=""><small class="form-text text-danger help-block lead"></small></div>
-                                <div class="form-group"><input class="form-control" type="tel" placeholder="Your Phone *" required=""><small class="form-text text-danger help-block lead"></small></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"><textarea class="form-control" id="message" placeholder="Your Message *" required=""></textarea><small class="form-text text-danger help-block lead"></small></div>
-                            </div>
-                            <div class="col">
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div><button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
     
-   

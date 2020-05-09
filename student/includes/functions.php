@@ -1,3 +1,4 @@
+
 <?php
 
 // this function it ill take all user information and save in the global variable

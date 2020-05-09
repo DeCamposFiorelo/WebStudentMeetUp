@@ -6,7 +6,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Login</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#login">Register</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                   
                 </ul>
             </div>
         </div>
