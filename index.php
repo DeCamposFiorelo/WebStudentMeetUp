@@ -1,12 +1,10 @@
 <?php include "includes/header.php"?>
 <?php include "includes/navigation.php"?>
-<?php include "includes/footer.php"?>
-
-    <header class="masthead" style="background-image:url('assets/img/book2.jpg');">
+    <header class="masthead" style="background-image:url('assets/images/book2.jpg');">
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in"><span>Welcome To StudentMeetUp</span></div>
-                <div class="intro-heading text-uppercase"><span>It's Nice To Meet You</span></div><a class="button btn-xl text-uppercase js-scroll-trigger" role="button" href="#login">Login</a></div>
+                <div class="intro-heading text-uppercase"><span>It's Nice To Meet You</span></div><a class="btn btn-mybutton btn-xl text-uppercase js-scroll-trigger" role="button" href="#login">Login</a></div>
         </div>
     </header>
     <!-- Login and register section-->   
@@ -18,8 +16,9 @@
                         <form action="includes/login.php" method="post">
                         <div class="form-group"><input class="form" type="email" name="email" placeholder="Email"></div>
                         <div class="form-group"><input class="form" type="password" name="password" placeholder="Password"></div>
-                        <div class="form-group"><button class="button " type="submit" name="login">Log In</button>
-                        </div></form>
+                        <div class="form-group"><button class="btn btn-mybutton" type="submit" name="login">Log In</button>
+                        </div>
+                    </form>
                  </div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
@@ -41,10 +40,9 @@
                                  <option>IT</option>
                                  <option>Business</option>
                                  <option>Others</option>
-
                             </select>
                             </div>
-                            <button class="button " type="submit" name="submit" >Register</button>
+                            <button class="btn btn-mybutton" type="submit" name="submit" >Register</button>
                         </div>
                     </form>
                  </div>
@@ -86,5 +84,5 @@
             </div>
         </div>
     </section>
-     <!-- Contact section-->
+    <?php include "includes/footer.php"?>
     

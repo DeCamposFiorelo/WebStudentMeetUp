@@ -24,7 +24,7 @@ function studentInformation(){
         $student_email=$row['student_email'];
         $student_course=$row['student_course'];
         $student_description=$row['student_description'];
-        $student_foto=$row['student_foto'];
+       
     }
 
 }
@@ -66,7 +66,7 @@ function showAllSession(){// it will show all the session available for the stud
     global $connection;//global connectin
     global $student_course;
     global $id_student;
-    $query="SELECT * from session WHERE course='$student_course' and session_id_admin<>'$id_student'";
+    $query="SELECT * from session WHERE course='$student_course' ";
     $select_post= mysqli_query($connection,$query);
 
       

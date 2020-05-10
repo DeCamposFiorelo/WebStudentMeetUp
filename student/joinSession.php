@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('../includes/db.php');
+include('includes/functions.php');
+studentInformation();
 
 
 
@@ -55,8 +57,8 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                         <p><span class="glyphicon glyphicon-calendar"></span> Date:  <?php echo $session_date ?></p>
                         <p><span class="glyphicon glyphicon-time"></span> Time:  <?php echo $session_time ?></p>
                         <p><span class="glyphicon glyphicon-globe"></span> Location:  <?php echo $session_location ?></p>
-
-                        <button type="button" class="btn "style="color: rgb(255,255,255);background-color: #ff8c25"><a href='http://localhost:3000/'>Chat</button>
+                        <?php  echo"<td><button type='button' class='btn'style='color: rgb(255,255,255);background-color: #ff8c25'><a href='http://localhost:3000/chat.html?username={$student_nickname}&room={$session_title}'>Chat</a></td>";?>
+                        
                              
                     </div>
                 </div>

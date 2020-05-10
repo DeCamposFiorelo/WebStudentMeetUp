@@ -1,4 +1,3 @@
-
 <?php
       // START A SESSION
       session_start();

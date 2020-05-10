@@ -1,0 +1,23 @@
+
+.btn-mybutton { 
+    color: rgb(255,255,255);
+    background-color: #ff8c25;
+
+}
+.btn-mybutton:hover {
+    color: rgb(255,255,255)
+    ;background-color:#ff8c25
+}
+.navbar-brandd{
+    flex: 1 1auto;
+    margin-left: 2%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#ff8c25
+}
+.navbar-brandd:hover{
+    color:#ff8c25
+    ;
+}
