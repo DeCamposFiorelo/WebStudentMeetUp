@@ -1,5 +1,5 @@
 
-const socket=IO.socket("https://3000-c9a2aea5-686b-4d02-a9a7-46f1ad13d9db.ws-eu01.gitpod.io/");
+const socket=io();
  
 
 //elements
@@ -40,16 +40,22 @@ const autoscroll= ()=>{
     }
 }
 
-socket.on('updateChat', (message)=>{
-    console.log(message)
+socket.on('updateChat', (data)=>{
+    var message = JSON.parse(data);
     const html= Mustache.render(messageTemplate,{
         userName:message.userName,
         message:message.messageContent,
-        createdAt:moment(message.createdAt).format('h:mm a')
+        createdAt:moment("13:00").format('h:mm a')
     })
+    console.log("The html:" + html);
     $messages.insertAdjacentHTML('beforeend',html)
 
 })
+
+
+function renderMessage(userName, message){
+
+}
 
 socket.on('userLeftChatRoom', (message)=>{
     console.log(message)
@@ -62,10 +68,19 @@ socket.on('userLeftChatRoom', (message)=>{
 
 })
 
-socket.emit('subscribe',{userName,roomName},(error)=>{
-    if(error){
-        alert(error)
-        location.href='/'
-    }
+ 
+ socket.emit('subscribe', { roomName, userName });
 
-})  
+
+
+$messageForm.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    $messageFormButton.setAttribute('disabled','disabled')
+    
+    //disable
+    const messageContent=e.target.elements.message.value
+
+    socket.emit('newMessage', {messageContent, roomName});
+    console.log('Message delivered!');
+ })
+
