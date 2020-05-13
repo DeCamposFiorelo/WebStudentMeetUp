@@ -52,16 +52,27 @@ socket.on('updateChat', (data)=>{
 
 })
 
+socket.on('newUserToChatRoom',(user)=>{
+    const html= Mustache.render(messageTemplate,{
+        userName:user,
+        message:" joined to the session.",
+        createdAt:moment("13:00").format('h:mm a')
+    })
+    console.log("The html:" + html);
+    $messages.insertAdjacentHTML('beforeend',html)
+})
+
 
 function renderMessage(userName, message){
 
 }
 
 socket.on('userLeftChatRoom', (message)=>{
-    console.log(message)
+    
+    console.log(message);
     const html= Mustache.render(messageTemplate,{
-        userName:message.userName,
-        message:"The following user left the chat: ",
+        userName:message,
+        message:" left the room. ",
         createdAt:moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend',html)
@@ -75,12 +86,22 @@ socket.on('userLeftChatRoom', (message)=>{
 
 $messageForm.addEventListener('submit',(e)=>{
     e.preventDefault()
-    $messageFormButton.setAttribute('disabled','disabled')
+
     
     //disable
     const messageContent=e.target.elements.message.value
 
     socket.emit('newMessage', {messageContent, roomName});
+
+     const html= Mustache.render(messageTemplate,{
+        userName:userName,
+        message:messageContent,
+        createdAt:moment("13:00").format('h:mm a')
+    })
+    console.log("The html:" + html);
+    $messages.insertAdjacentHTML('beforeend',html)
     console.log('Message delivered!');
  })
+
+
 

@@ -74,7 +74,7 @@ io.on('connection',function(socket) {
         const roomName = room_data.roomName;
     
         console.log(`Username : ${userName} leaved Room Name : ${roomName}`)
-        socket.broadcast.to(`${roomName}`).emit('userLeftChatRoom',userName)
+        socket.broadcast.to(`${roomName}`).emit('userLeftChatRoom',`${userName}`)
         socket.leave(`${roomName}`)
     })
 
