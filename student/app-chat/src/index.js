@@ -33,6 +33,7 @@ io.on('connection',function(socket) {
     console.log(`Connection : SocketId = ${socket.id}`)
     //Since we are going to use userName through whole socket connection, Let's make it global.   
     var userName = '';
+    var roomName = '';
     
     socket.on('subscribe', function(data) {
         console.log('subscribe trigged')
@@ -41,13 +42,12 @@ io.on('connection',function(socket) {
             room_data = JSON.parse(data)
             console.log("OnSubscribe: It is a mobile user");
         }catch(e){
-            console.log(e);
             console.log("OnSubscribe: It is a web user");
         }
         
         console.log(data);
         userName = room_data.userName;
-        const roomName = room_data.roomName;
+        roomName = room_data.roomName;
     
         socket.join(`${roomName}`)
         console.log(`User joined, username : ${userName} joined Room Name : ${roomName}`)
@@ -108,5 +108,8 @@ io.on('connection',function(socket) {
 
     socket.on('disconnect', function () {
         console.log("One of sockets disconnected from our server.")
+        console.log(`Username : ${userName} leaved Room Name : ${roomName}`)
+        socket.broadcast.to(`${roomName}`).emit('userLeftChatRoom',`${userName}`)
+        socket.leave(`${roomName}`)
     });
 })
