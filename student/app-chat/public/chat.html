@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentMeetUp Chat</title>
-    <link rel="icon" href="/img/favicon.png">
+   
+    
     <link rel="stylesheet" href="/css/styles.min.css">
 </head>
 <body>
+
     <div class="chat">
         <div id="sidebar" class="chat__sidebar">
         </div>
@@ -15,12 +17,10 @@
             <div id="messages"class="chat__messages"></div>
                 <div class="composer">
                     <form id="message-form">
-                        <input name="message"placeholder="Message" required autocomplete="off">
-                        <button>Send</button>
+                        <input type="text"name="message"placeholder="Message">
+                        <button type="submit">Send</button>
                     </form>
-
                 </div>
- 
         </div>
     </div>    
     <script id="message-template"type="text/html">
@@ -29,7 +29,16 @@
                <span class="message__name">{{userName}}</span>
                <span class="message__meta"> {{createdAt}}</span>
             </p>
-            <p>{{message}}</p>
+            <p >{{message}}</p>
+        </div>
+    </script>
+    <script id="message-otheruser"type="text/html">
+        <div class="message">
+            <p class="message-otheruser">
+               <span class="message__name">{{userName}}</span>
+               <span class="message__meta"> {{createdAt}}</span>
+            </p>
+            <p class="message-otheruser">{{message}}</p>
         </div>
     </script>
     <script id="location-message-template"type="text/html">
@@ -38,20 +47,11 @@
                <span class="message__name">{{userName}}</span>
                <span class="message__meta"> {{createdAt}}</span>
             </p>
-        
-            <p> <a href="{{url}}" target="_blanck">My current Location</a></p>
         </div>
     </script>
     <script id="sidebar-template" type="text/html">
         <h2 class="room-title">{{roomName}}</h2>
         <h3 class="list-title">Users</h3>
-        <ul class="users">
-            {{#users}}
-                <li>{{userName}}</li>
-            {{/users}}
-
-        </ul>
-
     </script>
 
 

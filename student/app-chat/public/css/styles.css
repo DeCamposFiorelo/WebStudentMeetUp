@@ -37,6 +37,7 @@ input {
     outline: none;
 }
 
+
 button {
     cursor: pointer;
     padding: 12px;
@@ -116,12 +117,14 @@ button:disabled {
 
 .message {
     margin-bottom: 16px;   
+     
 }
 
 .message__name {
     font-weight: 600;
     font-size: 14px;
     margin-right: 8px;
+
 }
 
 .message__meta {

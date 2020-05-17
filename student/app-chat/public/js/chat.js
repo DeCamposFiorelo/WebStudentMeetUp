@@ -10,11 +10,15 @@ const $sendLocationButton= document.querySelector('#send-location')
 const $messages=document.querySelector('#messages')
 //templates
 const messageTemplate =document.querySelector('#message-template').innerHTML
+const messagenewUserToChatRoom =document.querySelector('#message-otheruser').innerHTML
 const locationMessageTemplate=document.querySelector('#location-message-template').innerHTML
 const sidebarTemplate =document.querySelector('#sidebar-template').innerHTML
 //options
 
 const{ userName, roomName}=Qs.parse(location.search,{ignoreQueryPrefix:true})
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
 const autoscroll= ()=>{
     //new Message element
     const $newMessage=$messages.lastElementChild
@@ -42,10 +46,10 @@ const autoscroll= ()=>{
 
 socket.on('updateChat', (data)=>{
     var message = JSON.parse(data);
-    const html= Mustache.render(messageTemplate,{
+    const html= Mustache.render(messagenewUserToChatRoom,{
         userName:message.userName,
         message:message.messageContent,
-        createdAt:moment("13:00").format('h:mm a')
+        createdAt:h + ":" + m 
     })
     console.log("The html:" + html);
     $messages.insertAdjacentHTML('beforeend',html)
@@ -53,10 +57,10 @@ socket.on('updateChat', (data)=>{
 })
 
 socket.on('newUserToChatRoom',(user)=>{
-    const html= Mustache.render(messageTemplate,{
+    const html= Mustache.render(messagenewUserToChatRoom,{
         userName:user,
         message:" joined to the session.",
-        createdAt:moment("13:00").format('h:mm a')
+        createdAt:h + ":" + m 
     })
     console.log("The html:" + html);
     $messages.insertAdjacentHTML('beforeend',html)
@@ -70,10 +74,10 @@ function renderMessage(userName, message){
 socket.on('userLeftChatRoom', (message)=>{
     
     console.log(message);
-    const html= Mustache.render(messageTemplate,{
+    const html= Mustache.render(messagenewUserToChatRoom,{
         userName:message,
         message:" left the room. ",
-        createdAt:moment(message.createdAt).format('h:mm a')
+        createdAt:h + ":" + m 
     })
     $messages.insertAdjacentHTML('beforeend',html)
 
@@ -92,11 +96,11 @@ $messageForm.addEventListener('submit',(e)=>{
     const messageContent=e.target.elements.message.value
 
     socket.emit('newMessage', {messageContent, roomName});
-
+      
      const html= Mustache.render(messageTemplate,{
         userName:userName,
         message:messageContent,
-        createdAt:moment("13:00").format('h:mm a')
+        createdAt:h + ":" + m 
     })
     console.log("The html:" + html);
     $messages.insertAdjacentHTML('beforeend',html)
