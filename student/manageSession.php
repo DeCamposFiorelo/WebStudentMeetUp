@@ -2,6 +2,7 @@
 session_start();
 include('../includes/db.php');
 include('includes/functions.php');
+studentInformation();
 
 if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"])){
 	header("location: ../index.php");
@@ -15,17 +16,12 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
         <?php include "includes/navigation.php" ?>
 
         <div id="page-wrapper">
-
             <div class="container-fluid">
-
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        
-                        
                         <h1 class="page-header">
-                           Manage Sessions
-
+                           Manage  you created!
                         </h1>
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -69,10 +65,58 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
 	                     
 	                    ?>
                         </tbody>
-                        </table>
-                  
-                            
+                        </table>   
+                        
+                        <h1 class="page-header">
+                           Sessions you are In!
+                        </h1>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Course</th>
+                                    <th>Session Title</th>
+                                    <th>Session author</th>
+                                    <th>Session Date</th>
+                                    <th>Session time</th>
+                                    <th>Session Location</th>
+                                    <th>Session Content</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        <?php
+                      
+                             studentInformation();//method to get the admin information
+                             global $connection;//global connectin
+                             global  $id_student;
+                             $query = "SELECT id_session, course, session_title, session_id_admin,
+                                session_admin, session_date, session_time, session_location, session_tags, session_descr
+                                FROM session 
+                                INNER JOIN session_student 
+                                ON session_student.session_id = session.id_session 
+                                WHERE session_student.student_id='$id_student'";
+
+                             $records= mysqli_query($connection,$query);
+                             while($row = mysqli_fetch_array($records)){
+                               echo "<tr>";
+                               
+                               echo"<td>".$row['id_session']."</td>";
+                               echo"<td>".$row['course']."</td>";
+                               echo"<td>".$row['session_title']."</td>";
+                               echo"<td>".$row['session_admin']."</td>";
+                               echo"<td>".$row['session_date']."</td>";
+                               echo"<td>".$row['session_time']."</td>";
+                               echo"<td>".$row['session_location']."</td>";
+                               echo"<td>".$row['session_descr']."</td>";
+                          
+                               echo"</tr>";
+                             }
+	                     
+	                    ?>
+                        </tbody>
+                        </table>   
                     </div>
+
                 </div>
                 <!-- /.row -->
 

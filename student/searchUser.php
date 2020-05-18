@@ -46,21 +46,26 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                          $searchUsername_name=  $row['student_nickname'];echo"<br>";
                                          $searchUsername_course=  $row['student_course'];echo"<br>";
                                          $searchUsername_description=  $row['student_description'];echo"<br>";
+                                         $searchUsername_session_created=  $row['sessions_created'];echo"<br>";
+                                         $searchUsername_session_joined=  $row['sessions_joined'];echo"<br>";
                                          
                                          echo"<p><span class='glyphicon glyphicon-list'></span> Username ID:  $searchUserName_id </p>";
                                          echo"<p> <span class='glyphicon glyphicon-user'></span>Username:  $searchUsername_name</p>";
                                          echo"<p><span class='glyphicon glyphicon-education'></span> Course:  $searchUsername_course</p>";
                                          echo"<p><span class='glyphicon glyphicon-comment'></span> Description:  $searchUsername_description</p>";
+                                         echo"<p><span class='glyphicon glyphicon-pencil'></span> Session Created: $searchUsername_session_created</p>";
+                                         echo"<p><span class='glyphicon glyphicon-ok'></span> Session Joined:  $searchUsername_session_joined</p>";
                                          echo"<form action='' method='post'>";
                                          echo"<label>Report User</label>";
-                                         echo"<select name='report-user'>";
+                                         echo"<p><select name='report-user'>";
                                          echo"<option value=''>Select</option>";
                                          echo"<option value='abusive'>Abusive</option>";
                                          echo"<option value='spamming_bot''>Spamming_bot'</option>";
+                                         echo"<option value='other'>Other</option>";
                                          echo"</select>";   
                                          echo"<input type='hidden' name='id_student_reported' value='$searchUserName_id'>";
-                                         echo"<input class='form' type=text' name='reason' placeholder='Reason'>";
-                                         echo"<button type='submit' name='reportUser'class='btn btn-danger'>Report User</button>";
+                                         echo"<p><input class='form' type=text' name='reason' placeholder='Reason'></p>";
+                                         echo"<p><button type='submit' name='reportUser'class='btn btn-danger'>Report User</button></p>";
                                         echo"</form>";
                                     }
 

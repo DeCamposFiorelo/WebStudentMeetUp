@@ -55,30 +55,18 @@
                     <div class="team-member"><img class="rounded-circle mx-auto" src="assets/images/suelenfiorelo.jpg">
                         <h4>Suelen Fiorelo</h4>
                         <p class="text-muted">Web Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="https://www.facebook.com/suelen.fiorelo"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/suelen-fiorelo-aa472857/"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member"><img class="rounded-circle mx-auto" src="assets/images/alejandrozeballos.jpg">
                         <h4>Alejandro Zeballos</h4>
-                        <p class="text-muted">Software Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="https://www.facebook.com/AlejandroFavioZeballos"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                        <p class="text-muted">Software Developer</p>     
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member"><img class="rounded-circle mx-auto" src="assets/images/jamesharris.jpg">
                         <h4>James Harris</h4>
-                        <p class="text-muted">Database administrator</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100000378857568"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                        <p class="text-muted">Database administrator</p>      
                     </div>
                 </div>
             </div>

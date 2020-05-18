@@ -12,7 +12,23 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
 
 
     if(isset($_GET['join'])){
+
     $session_id = $_GET['join'];
+    $queryJoined = "INSERT INTO session_student(student_id,session_id)VALUES('$id_student','$session_id');";
+    $select_categories_Joined = mysqli_query($connection,$queryJoined);
+
+    $queryUpdate = "UPDATE student SET sessions_joined = sessions_joined + 1  WHERE id_student = '$id_student';";
+    $select_categories_Joined2 = mysqli_query($connection,$queryUpdate);
+
+    if($select_categories_Joined){
+        echo"Joined";
+        
+    }elseif($select_categories_Joined2){
+        echo"update";
+
+    }
+
+
     $query = "select * from session where id_session = {$session_id} ";
    
     $select_categories = mysqli_query($connection,$query);  
@@ -29,6 +45,17 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
    
 }
 }
+
+if(isset($_POST['leaveSession'])){
+    $query = "DELETE FROM session_student WHERE session_id ='$session_id' AND student_id = '$id_student'";
+    $select_categories = mysqli_query($connection,$query);  
+
+    if($select_categories){
+        header("refresh:1; url=welcome.php");
+       
+        }
+    }
+                       
 
 ?>
 
@@ -57,11 +84,10 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                         <p><span class="glyphicon glyphicon-calendar"></span> Date:  <?php echo $session_date ?></p>
                         <p><span class="glyphicon glyphicon-time"></span> Time:  <?php echo $session_time ?></p>
                         <p><span class="glyphicon glyphicon-globe"></span> Location:  <?php echo $session_location ?></p>
-<<<<<<< HEAD
-                        <?php  echo"<td><button type='button' class='btn'style='color: rgb(255,255,255);background-color: #ff8c25'><a style='color:white'href='http://localhost:3000/chat.html?userName={$student_nickname}&roomName={$session_title}'>Chat</a></td>";?>
-=======
-                        <?php  echo"<td><button type='button' class='btn'style='color: rgb(255,255,255);background-color: #ff8c25'><a href='http://localhost:3000/chat.html?userName={$student_nickname}&roomName={$session_title}'>Chat</a></td>";?>
->>>>>>> 7d014251e2b63e0b73ac4bb4792b7e67807f6d03
+                        <?php  echo"<p><button type='button' class='btn'style='color: rgb(255,255,255);background-color: #ff8c25'><a style='color:white'href='http://localhost:3000/chat.html?userName={$student_nickname}&roomName={$session_title}'>ChatRoom</a></button></p>";?>
+                        <form class="custom-form" action=""method="post">
+                            <button class="btn btn-danger" name="leaveSession" value="<?php echo$session_id?>">Leave Session</button></p>
+                        </form>
                         
                              
                     </div>

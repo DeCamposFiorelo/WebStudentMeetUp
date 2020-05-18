@@ -14,7 +14,9 @@ function studentInformation(){
     global $student_email;
     global $student_course;
     global $student_description;
-    global $student_foto;
+    global $student_sessions_created;
+    global $student_sessions_joined;
+   
 
                            
      while($row = mysqli_fetch_assoc( $select_post)){
@@ -24,6 +26,8 @@ function studentInformation(){
         $student_email=$row['student_email'];
         $student_course=$row['student_course'];
         $student_description=$row['student_description'];
+        $student_sessions_created=$row['sessions_created'];
+        $student_sessions_joined=$row['sessions_joined'];
        
     }
 
@@ -48,12 +52,28 @@ function createSession(){// this function it will create a session
         
        
         $query="INSERT INTO `session`(`course`,`session_title`,`session_id_admin`,`session_admin`, `session_date`, `session_time`, `session_location`, `session_tags`, `session_descr`) VALUES ('$student_course',' $session_title','$id_student',' $student_nickname','$session_date','$session_time','$session_location','$session_tags','$session_content')";
-    
+        
+        $queryCrossInsert = "INSERT INTO session_student(student_id,session_id) VALUES('$id_student',LAST_INSERT_ID());";
+
+        $queryUpdate = "UPDATE student 
+        SET sessions_created = sessions_created + 1 
+        WHERE id_student = '$id_student';";
+        
         $create_post_query=mysqli_query($connection,$query);
+        $cross_insert = mysqli_query($connection, $queryCrossInsert);
+        $update_created_session=mysqli_query($connection, $queryUpdate);
         if($create_post_query){
             echo"Created";
             
-        }else{
+        }elseif($cross_insert){
+            echo"insert";
+
+        }elseif( $update_created_session){
+            echo"insert";
+
+        }
+
+    else{
             die("query failed".mysqli_error($connection));
         }
     
@@ -97,33 +117,6 @@ function showAllSession(){// it will show all the session available for the stud
      }
 }
 //======================================================================================================================
-function updateProfile(){// this function it will create a session
-    studentInformation();//method to get the admin information
 
-    global $id_student;
-    global $connection;//global connectin
-    if(isset($_POST['update'])){
-        
-        
-        $studentFirstName=$_POST['studentFirstName'];
-        $studentNickname= $_POST['studentNickname'];
-        $studentemail= $_POST['studentemail'];
-        $studentcourse= $_POST['studentcourse'];
-        $studentdescription=$_POST['studentdescription'];
-        
-        
-       
-        $query="UPDATE `student` SET `student_firstName`='$studentFirstName',`student_nickname`='$studentNickname',`student_email`='$studentemail',`student_course`='$studentcourse',`student_description`='$studentdescription' WHERE id_student='$id_student';";
-    
-        $create_post_query=mysqli_query($connection,$query);
-        if($create_post_query){
-            echo"<p style='color:#FF0000'>user updated</p>";
-            
-        }else{
-            die("query failed".mysqli_error($connection));
-        }
-    
-    
-}  
-}
+
 ?>

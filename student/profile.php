@@ -13,11 +13,10 @@ if(isset($_POST['update'])){
         
     $studentFirstName=$_POST['studentFirstName'];
     $studentNickname= $_POST['studentNickname'];
-    $studentemail= $_POST['studentemail'];
-    $studentcourse= $_POST['studentcourse'];
+    $studentcourse= $_POST['course'];
     $studentdescription=$_POST['studentdescription'];
 
-    $query="UPDATE `student` SET `student_firstName`='$studentFirstName',`student_nickname`='$studentNickname',`student_email`='$studentemail',`student_course`='$studentcourse',`student_description`='$studentdescription' WHERE id_student='$id_student';";
+    $query="UPDATE `student` SET `student_firstName`='$studentFirstName',`student_nickname`='$studentNickname',`student_course`='$studentcourse',`student_description`='$studentdescription' WHERE id_student='$id_student';";
 
     $create_post_query=mysqli_query($connection,$query);
     if($create_post_query){
@@ -59,19 +58,31 @@ if(isset($_POST['update'])){
                                 <input type="text" class="form-control" name="studentNickname" value="<?php echo$student_nickname;?>"required>
                             </div>
                             <div class="form-group">
-                                <label for="studentemail">Email</label>
-                                <input type="text" class="form-control" name="studentemail" value="<?php echo$student_email;?>"required>
-                            </div>
-                            <div class="form-group">
                                 <label for="studentcourse">Course</label>
-                                <input type="text" class="form-control" name="studentcourse" value="<?php echo$student_course;?>"required>
+                                <input type="text" class="form-control" disabled="disabled" value="<?php echo$student_course;?>">
+                                <div class="form-group">
+                                <label for="studentcourse">Course</label>
+                                <select name="course" >
+                                    <option>IT</option>
+                                    <option>Business</option>
+                                    <option>Others</option>
+                            </select>
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label for="studentdescription">Description</label>
                                 <input type="text" class="form-control" name="studentdescription" value="<?php echo$student_description;?>"required>
                             </div>
+                            <div class="form-group">
+                                <label for="SessionHost">Session Host</label>
+                                <input type="text" class="form-control" name="SessionHost"disabled="disabled" value="<?php echo$student_sessions_created;?>"required>
+                            </div>
+                            <div class="form-group">
+                                <label for="SessionJoined">Session Joined</label>
+                                <input type="text" class="form-control" name="SessionJoined"disabled="disabled" value="<?php echo$student_sessions_joined;?>"required>
+                            </div>
                             <div>
-                                <button class="btn btn-mybutton"  type="submit" onclick="myFunction()"name="update"style="color: rgb(255,255,255);background-color: #ff8c25">Update</button>
+                                <button class="btn btn-mybutton"  type="submit" name="update"style="color: rgb(255,255,255);background-color: #ff8c25">Update</button>
                             </div>
                         </form>
                         <?php
