@@ -28,15 +28,14 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                         <form class="custom-form" action=""method="post">
                                 <label>Student User Name:</label>
                                 <input class="form" type="text" name="username" required="required" placeholder="Username">
-                                <button class="btn btn-success " type="submit" name="submit" >Search</button>
+                                <button class="btn btn-mybutton"  type="submit" name="submit" >Search</button>
                             </form>
                             <?php
-                            
                                 if(isset($_POST['submit'])){
                                     
                                     $searchUsername = $_POST['username'];
                                     
-                                    $query = "select * from student where student_nickname = '$searchUsername'";
+                                    $query = "SELECT * FROM student WHERE student_nickname LIKE '%$searchUsername%'";
                                     $select_categories = mysqli_query($connection,$query);  
                                     $searchUserName_id ;
                                     if($select_categories->num_rows>0){
@@ -47,12 +46,11 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                          $searchUsername_name=  $row['student_nickname'];echo"<br>";
                                          $searchUsername_course=  $row['student_course'];echo"<br>";
                                          $searchUsername_description=  $row['student_description'];echo"<br>";
-                                         $searchUsername_foto=  $row['student_foto'];
+                                         
                                          echo"<p><span class='glyphicon glyphicon-list'></span> Username ID:  $searchUserName_id </p>";
                                          echo"<p> <span class='glyphicon glyphicon-user'></span>Username:  $searchUsername_name</p>";
                                          echo"<p><span class='glyphicon glyphicon-education'></span> Course:  $searchUsername_course</p>";
                                          echo"<p><span class='glyphicon glyphicon-comment'></span> Description:  $searchUsername_description</p>";
-                                         echo"<p><span class='glyphicon glyphicon-calendar'></span> Picture:  $searchUsername_foto</p>";
                                          echo"<form action='' method='post'>";
                                          echo"<label>Report User</label>";
                                          echo"<select name='report-user'>";

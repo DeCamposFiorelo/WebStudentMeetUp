@@ -10,28 +10,19 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
 }
 
 ?>
-
 <?php include "includes/header.php" ?>
-
     <div id="wrapper">
-
         <!-- Navigation -->
         <?php include "includes/navigation.php" ?>
-
         <div id="page-wrapper">
-
             <div class="container-fluid">
-
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         
-                          
                         <h1 class="page-header">
                             Welcome
-                            <?php
-                             echo"<small> $student_nickname</small>";
-	                        ?>
+                            <?php echo"<small> $student_nickname</small>";?>
                             
                         </h1>
                         <table class="table table-bordered table-hover">
@@ -51,10 +42,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                 </tr>
                             </thead>
                             <tbody>
-                        <?php
-	                       showAllSession();
-
-	                    ?>
+                        <?php showAllSession(); //show all function is available?>
                         </tbody>
                         </table>
                   

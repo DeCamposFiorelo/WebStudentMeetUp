@@ -28,7 +28,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                             <form action="" method="POST">
                             <label>Search for Session: </label>
                             <input class="form" type="text" name="searchsession" required="required" placeholder="session tags">
-                            <button class="btn btn-success " type="submit" name="submit" >Search</button>
+                            <button class="btn btn-mybutton"  type="submit" name="submit" >Search</button>
                             </form>
                         </div>
                         <?php
@@ -79,7 +79,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                     echo "<td>$session_time</td>";
                                     echo "<td>$session_location</td>";
                                     echo "<td>$session_content</td>";
-                                    echo"<td><a href='joinSession.php?join={$session_id}'>Join</a></td>";
+                                    echo"<td><button class='btn btn-mybutton'><a style='color:white' href='joinSession.php?join={$session_id}'>Join</a></td></button>";
                                     echo"</tr>";
                             }?>
                             </tbody>

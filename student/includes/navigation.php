@@ -1,5 +1,5 @@
 
-<nav style="background:#ff8c25"class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav style="background:#ff8c25"class="navbar navbar-inverse navbar-fixed-top " role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -22,7 +22,7 @@
                         
                         <li class="divider"></li>
                         <li>
-                            <a href="../index.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="../includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>  
                 </li>
@@ -39,11 +39,12 @@
                     <li>
                         <a href="manageSession.php"><i class="fa fa-fw fa-table"></i> Manage Session</a>
                     </li>
+                   
                     <li>
-                        <a href="searchSession.php"><i class="fa fa-fw fa-table"></i> Search Session</a>
+                        <a href="searchSession.php"><i class="fa fa-search"></i> Search Session</a>
                     </li>
                     <li>
-                        <a href="searchUser.php"><i class="fa fa-fw fa-edit"></i> Search  user</a>
+                        <a href="searchUser.php"><i class="fa fa-search"></i> Search  user</a>
                     </li>
                    
                 </ul>

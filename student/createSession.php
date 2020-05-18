@@ -59,7 +59,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                 </div>
 
                             <div class = "form-group">
-                                <input class="btn btn-primary" type="submit" name="create_post" value="Create Session">
+                                <input class="btn btn-mybutton" type="submit" name="create_post" value="Create Session">
                             </div>
                         </form>
      

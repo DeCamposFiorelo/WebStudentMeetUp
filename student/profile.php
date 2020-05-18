@@ -8,6 +8,24 @@ studentInformation();// function with user information
 if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"])){
 	header("location: ../index.php");
 }
+if(isset($_POST['update'])){
+        
+        
+    $studentFirstName=$_POST['studentFirstName'];
+    $studentNickname= $_POST['studentNickname'];
+    $studentemail= $_POST['studentemail'];
+    $studentcourse= $_POST['studentcourse'];
+    $studentdescription=$_POST['studentdescription'];
+
+    $query="UPDATE `student` SET `student_firstName`='$studentFirstName',`student_nickname`='$studentNickname',`student_email`='$studentemail',`student_course`='$studentcourse',`student_description`='$studentdescription' WHERE id_student='$id_student';";
+
+    $create_post_query=mysqli_query($connection,$query);
+    if($create_post_query){
+         
+    }else{
+        die("query failed".mysqli_error($connection));
+    }
+}
 ?>
 
 <?php include "includes/header.php" ?>
@@ -28,13 +46,9 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                        
 
                             <?php
-                            studentInformation();
-                            updateProfile();?>
-                            <script>
-                            function myFunction() {
-                            alert("Too see the update you have to logout and login again");
-                            }
-                            </script>
+                                studentInformation();
+                            ?>
+                            
                             <form action="" method="post" enctype="multipart/form-data">
                             <div class = "form-group">
                                 <label for = "studentName"> Student First Name</label>
@@ -57,7 +71,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                 <input type="text" class="form-control" name="studentdescription" value="<?php echo$student_description;?>"required>
                             </div>
                             <div>
-                                <button class="btn btn-success" type="submit" onclick="myFunction()"name="update"style="color: rgb(255,255,255);background-color: #ff8c25">Update</button>
+                                <button class="btn btn-mybutton"  type="submit" onclick="myFunction()"name="update"style="color: rgb(255,255,255);background-color: #ff8c25">Update</button>
                             </div>
                         </form>
                         <?php

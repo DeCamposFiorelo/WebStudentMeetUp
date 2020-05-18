@@ -16,6 +16,7 @@ if(isset($_POST['submit'])){
         $nickname= mysqli_real_escape_string($connection, $nickname);
         $registerEmail= mysqli_real_escape_string($connection, $registerEmail);
         $registerPassword= mysqli_real_escape_string($connection, $registerPassword);
+        $registerPassword = md5($registerPassword);
         $description= mysqli_real_escape_string($connection, $description);
         $course= mysqli_real_escape_string($connection, $course);
 
@@ -29,7 +30,7 @@ if(isset($_POST['submit'])){
             die("Query failed".mysqli_error($connection));
         }else{
             echo "Records added successfully. ";
-            header("refresh:3; url=../index.php");
+            header("refresh:1; url=../index.php");
         }
     }else{
         echo"Password don't match";

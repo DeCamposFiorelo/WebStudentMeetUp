@@ -38,12 +38,14 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                     <th>Session time</th>
                                     <th>Session Location</th>
                                     <th>Session Content</th>
+                                    <th>Edit</th>
                                     <th>Delete</th>
                                     
                                 </tr>
                             </thead>
                             <tbody>
                         <?php
+                      
                              studentInformation();//method to get the admin information
                              global $connection;//global connectin
                              global  $id_student;
@@ -60,7 +62,8 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                echo"<td>".$row['session_time']."</td>";
                                echo"<td>".$row['session_location']."</td>";
                                echo"<td>".$row['session_descr']."</td>";
-                               echo"<td><a href='editSession.php?delete={$row['id_session']}'>Delete</a></td>";
+                               echo"<td><button class='btn btn-mybutton'><a style='color:white'href='editSession.php?edit={$row['id_session']}'>Edit</a></button></td>";
+                               echo"<td><button class='btn btn-danger'><a style='color:white'href='deleteSession.php?delete={$row['id_session']}'>Delete</a></td>";
                                echo"</tr>";
                              }
 	                     

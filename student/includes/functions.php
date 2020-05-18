@@ -66,7 +66,7 @@ function showAllSession(){// it will show all the session available for the stud
     global $connection;//global connectin
     global $student_course;
     global $id_student;
-    $query="SELECT * from session WHERE course='$student_course' ";
+    $query="SELECT * from session WHERE course='$student_course'  ";
     $select_post= mysqli_query($connection,$query);
 
       
@@ -89,7 +89,7 @@ function showAllSession(){// it will show all the session available for the stud
         echo "<td>$session_time</td>";
         echo "<td>$session_location</td>";
         echo "<td>$session_content</td>";
-        echo"<td><a href='joinSession.php?join={$session_id}'>Join</a></td>";
+        echo"<td><button class='btn btn-mybutton'><a style='color:white' href='joinSession.php?join={$session_id}'>Join</a></button></td>";
 
 
         echo"</tr>";
