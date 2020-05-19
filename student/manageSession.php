@@ -125,6 +125,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                             
                                 if($select_categories){
                                     echo"<p style='color:red'>You left the Session";
+                                    
                                    
                                     }
                                 }

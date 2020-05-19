@@ -63,7 +63,7 @@ function createSession(){// this function it will create a session
         $cross_insert = mysqli_query($connection, $queryCrossInsert);
         $update_created_session=mysqli_query($connection, $queryUpdate);
         if($create_post_query){
-            echo"Created";
+            echo"<p style='color:#FF0000'>Created</p>";
             
         }elseif($cross_insert){
             echo"insert";

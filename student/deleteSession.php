@@ -14,8 +14,8 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
     $select_categories = mysqli_query($connection,$query);  
 
     if($select_categories){
-        header("refresh:3; url=manageSession.php");
-		echo"The Session was Delete!";
+        header("refresh:0; url=manageSession.php");
+		
     }
   
  

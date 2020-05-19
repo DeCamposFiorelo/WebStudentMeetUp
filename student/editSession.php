@@ -24,8 +24,9 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
    
 }
 }
-if(isset($_POST['editsession'])){
+if(($_POST['editsession'] && $_POST['id'])){
 
+    $id=$_POST['id'];
     $session_title=$_POST['session_title'];
     $session_date=$_POST['session_date'];
     $session_time=$_POST['session_time'];
@@ -33,11 +34,10 @@ if(isset($_POST['editsession'])){
     $session_location=$_POST['session_location'];
     $session_content=$_POST['session_descr'];
 
-    $query="UPDATE `session` SET `session_title`='$session_title',`session_date`='$session_date',`session_time`='$session_time',`session_location`=' $session_location',`session_tags`=' $session_tags',`session_descr`='$session_content' WHERE $session_id;";
-
+    $query="UPDATE `session` SET `session_title`='$session_title',`session_date`='$session_date',`session_time`='$session_time',`session_location`='$session_location',`session_tags`='$session_tags',`session_descr`='$session_content' WHERE id_session='$id';";
     $create_post_query=mysqli_query($connection,$query);
     if($create_post_query){
-        echo"update";
+        header("refresh:0; url=manageSession.php");
         
     }else{
         die("query failed".mysqli_error($connection));
@@ -98,7 +98,8 @@ if(isset($_POST['editsession'])){
                                 </div>
 
                             <div class = "form-group">
-                                <input class="btn btn-mybutton" type="submit" name="editsession" value="Edit Session">
+                            <input class="btn btn-mybutton" type="submit" name="editsession" value="Edit">
+                                <input class="btn btn-mybutton" type="hidden" name="id" value="<?php echo $session_id;?>">
                             </div>
                         </form>
      
