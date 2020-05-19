@@ -7,6 +7,8 @@ studentInformation();
 if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"])){
 	header("location: ../index.php");
 }
+
+
 ?>
 <?php include "includes/header.php" ?>
 
@@ -81,6 +83,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                     <th>Session time</th>
                                     <th>Session Location</th>
                                     <th>Session Content</th>
+                                    <th>Leave Session</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,6 +92,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                              studentInformation();//method to get the admin information
                              global $connection;//global connectin
                              global  $id_student;
+                             global $session_id;
                              $query = "SELECT id_session, course, session_title, session_id_admin,
                                 session_admin, session_date, session_time, session_location, session_tags, session_descr
                                 FROM session 
@@ -98,6 +102,7 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
 
                              $records= mysqli_query($connection,$query);
                              while($row = mysqli_fetch_array($records)){
+                             $session_id= $row['id_session'];
                                echo "<tr>";
                                
                                echo"<td>".$row['id_session']."</td>";
@@ -107,11 +112,24 @@ if(!isset($_SESSION["student_email"]) || !isset ($_SESSION["student_password"]))
                                echo"<td>".$row['session_date']."</td>";
                                echo"<td>".$row['session_time']."</td>";
                                echo"<td>".$row['session_location']."</td>";
-                               echo"<td>".$row['session_descr']."</td>";
-                          
+                               echo"<td>".$row['session_descr']."</td>";?>
+                               <form class="custom-form" action=""method="post">
+                               <td><button class="btn btn-danger" name="leaveSession" value="<?php echo$session_id?>">Leave Session</button></p>
+                           </form>
+                           <?php
                                echo"</tr>";
                              }
-	                     
+                             if(isset($_POST['leaveSession'])){
+                                $query = "DELETE FROM session_student WHERE session_id ='$session_id' AND student_id = '$id_student'";
+                                $select_categories = mysqli_query($connection,$query);  
+                            
+                                if($select_categories){
+                                    echo"<p style='color:red'>You left the Session";
+                                   
+                                    }
+                                }
+                            
+                            
 	                    ?>
                         </tbody>
                         </table>   

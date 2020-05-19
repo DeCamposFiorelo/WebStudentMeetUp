@@ -84,7 +84,7 @@ if(isset($_POST['leaveSession'])){
                         <p><span class="glyphicon glyphicon-calendar"></span> Date:  <?php echo $session_date ?></p>
                         <p><span class="glyphicon glyphicon-time"></span> Time:  <?php echo $session_time ?></p>
                         <p><span class="glyphicon glyphicon-globe"></span> Location:  <?php echo $session_location ?></p>
-                        <?php  echo"<p><button type='button' class='btn'style='color: rgb(255,255,255);background-color: #ff8c25'><a style='color:white'href='https://studentmeetup.herokuapp.com/chat.html?userName={$student_nickname}&roomName={$session_title}'>ChatRoom</a></button></p>";?>
+                        <?php  echo"<p><button type='button' class='btn'style='color: rgb(255,255,255);background-color: #ff8c25'><a style='color:white'href='https://studentmeetup.herokuapp.com/chat.html?userName={$student_nickname}&roomName={$session_id}'>ChatRoom</a></button></p>";?>
                         <form class="custom-form" action=""method="post">
                             <button class="btn btn-danger" name="leaveSession" value="<?php echo$session_id?>">Leave Session</button></p>
                         </form>
